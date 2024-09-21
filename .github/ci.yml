@@ -1,0 +1,19 @@
+on:
+  push:
+    branches:
+      -main
+
+jobs:
+  test:
+    runs-on: ubunto-latest
+    
+    steps:
+      -name: Nome Projeto
+      with: 
+        node-version: '16'
+      -name: Instalar dependências do projeto
+      run: npm install
+      -name: Execução do teste
+      run: npm run test
+      env:
+        CI: true
